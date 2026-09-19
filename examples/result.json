@@ -1,0 +1,18 @@
+{
+  "output": "output\\versions.json",
+  "level_count": 10,
+  "level_0_char_count": 100,
+  "counts": {
+    "0": 100,
+    "1": 56,
+    "2": 37,
+    "3": 18,
+    "4": 13,
+    "5": 13,
+    "6": 14,
+    "7": 5,
+    "8": 8,
+    "9": 8
+  },
+  "bom": false
+}

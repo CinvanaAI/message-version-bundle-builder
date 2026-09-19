@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+build/
+dist/
+*.egg-info/
+output/
+tagged_messages.jsonl
+run_summary.json
+conversations*.json
+
+# Local first-use results
+output/
+.env
+__pycache__/
+*.egg-info/
+build/
+dist/

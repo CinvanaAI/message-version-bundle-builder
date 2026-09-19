@@ -1,0 +1,18 @@
+--- 1 ---
+A synthetic message demonstrating smaller context views.
+--- 2 ---
+Synthetic context-view demonstration.
+--- 3 ---
+Context-view demo.
+--- 4 ---
+Context demo.
+--- 5 ---
+Demo context.
+--- 6 ---
+Demonstration.
+--- 7 ---
+Demo.
+--- 8 ---
+Example.
+--- 9 ---
+Example.

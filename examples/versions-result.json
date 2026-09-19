@@ -1,0 +1,42 @@
+{
+  "0": {
+    "message": "A synthetic canonical message with enough detail to demonstrate progressively smaller context views.",
+    "char_count": 100
+  },
+  "1": {
+    "message": "A synthetic message demonstrating smaller context views.",
+    "char_count": 56
+  },
+  "2": {
+    "message": "Synthetic context-view demonstration.",
+    "char_count": 37
+  },
+  "3": {
+    "message": "Context-view demo.",
+    "char_count": 18
+  },
+  "4": {
+    "message": "Context demo.",
+    "char_count": 13
+  },
+  "5": {
+    "message": "Demo context.",
+    "char_count": 13
+  },
+  "6": {
+    "message": "Demonstration.",
+    "char_count": 14
+  },
+  "7": {
+    "message": "Demo.",
+    "char_count": 5
+  },
+  "8": {
+    "message": "Example.",
+    "char_count": 8
+  },
+  "9": {
+    "message": "Example.",
+    "char_count": 8
+  }
+}
