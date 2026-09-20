@@ -39,7 +39,10 @@ def read_message(path: Path) -> str:
         raise ValueError(f"message file must contain a JSON object: {path}")
     if "message" not in parsed:
         raise ValueError(f"message file is missing canonical message text: {path}")
-    return str(parsed.get("message", "") or "")
+    message = parsed["message"]
+    if not isinstance(message, str):
+        raise ValueError("canonical message must be a string")
+    return message
 
 
 def parse_marker_levels(text: str, path: Path) -> dict[str, str]:
@@ -90,15 +93,15 @@ def normalize_levels(raw: Any) -> dict[str, str]:
     levels: dict[str, str] = {}
     for key, value in raw.items():
         level_key = str(key)
-        if not level_key.isdigit():
-            continue
-        level = int(level_key)
-        if level < MIN_LEVEL or level > MAX_LEVEL:
-            continue
+        if level_key not in {str(level) for level in range(MIN_LEVEL, MAX_LEVEL + 1)}:
+            raise ValueError(f"invalid level key {level_key!r}; use exactly 0-9")
         if isinstance(value, dict):
-            levels[level_key] = str(value.get("message", "") or "")
-        else:
-            levels[level_key] = str(value or "")
+            if "message" not in value:
+                raise ValueError(f"level {level_key} is missing message")
+            value = value["message"]
+        if not isinstance(value, str):
+            raise ValueError(f"level {level_key} message must be a string")
+        levels[level_key] = value
     return levels
 
 
@@ -120,6 +123,11 @@ def read_levels(path: Path) -> dict[str, str]:
 
 
 def build_versions(canonical: str, levels: dict[str, str], fill_missing: str) -> dict[str, dict[str, Any]]:
+    if fill_missing not in {"error", "repeat-last"}:
+        raise ValueError("fill_missing must be error or repeat-last")
+    if not isinstance(canonical, str):
+        raise ValueError("canonical message must be a string")
+    levels = normalize_levels(levels)
     if "0" in levels and levels["0"] != canonical:
         raise ValueError("provided level 0 does not match canonical message text")
 
